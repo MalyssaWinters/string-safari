@@ -73,16 +73,18 @@ namespace StringSafari
         public static bool HasAPride(string str)
         {
             str = str.ToLower();
-            int fisrtLion = str.IndexOf("lion");
+
+            string newString = str.ToLower();
+            int firstLion = str.IndexOf("lion");
             int lastLion = str.LastIndexOf("lion");
-            int numberOfLions = lastLion - fisrtLion;
-            if (numberOfLions >= 2)
+    
+            if (firstLion == lastLion)
             {
-                return true;
+                return false;
             }
             else
             {
-                return false;
+                return true;
             }
         }
 
@@ -96,7 +98,7 @@ namespace StringSafari
         {
             if (HasAPride(str) && (!HasADazzle(str)) && HasZebra(str))
             {
-              return true;
+                return true;
             }
             else
             {
@@ -113,9 +115,15 @@ namespace StringSafari
         /// <returns>true if there is no lion at the start of the string</returns>
         public static bool SafeDistanceToLion(string str)
         {
-            // TODO
-            return false;
+            string newString = str.ToLower();
+            if (newString.StartsWith("lion"))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
-    
 }
